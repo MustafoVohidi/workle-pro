@@ -1,8 +1,8 @@
 <template>
   <footer>
     <div class="container">
-      <div class="row-item">
-        <div class="col-3-item"></div>
+      <div class="row-item pagin">
+        <div class="col-3-item d-xs-none"></div>
         <div class="col-6-item">
           <Pagination />
         </div>
@@ -38,5 +38,28 @@ footer {
   box-sizing: border-box;
   display: flex;
   align-items: center;
+}
+@media (max-width: 767px) {
+  .pagin {
+    .col-6-item {
+      width:50%;
+    }
+    .col-3-item {
+       width:25%;
+    }
+  }
+}
+@media (max-width: 479px) {
+  .d-xs-none{
+    display:none;
+  }
+  .pagin {
+    .col-6-item {
+      width:66%;
+    }
+    .col-3-item {
+      width:33%;
+    }
+  }
 }
 </style>

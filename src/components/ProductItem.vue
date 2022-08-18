@@ -22,7 +22,7 @@
         </button>
         <input type="text" value="1" />
       </div>
-      <div class="currency">{{product.price}} руб.</div>
+      <div class="currency">{{ product.price }} руб.</div>
     </div>
   </div>
 </template>
@@ -70,6 +70,7 @@ export default {
     align-items: center;
     justify-content: flex-start;
     padding: 10px;
+    box-sizing: border-box;
     .img-author {
       margin-right: 10px;
       img {
@@ -146,5 +147,18 @@ export default {
       line-height: 14px;
     }
   }
+}
+@media (max-width: 767px) {
+  .col-6-item {
+    width: 100%;
+    padding: 0;
+  }
+}
+@media (max-width: 479px) {
+  .col-6-item {
+    padding: 0;
+  }
+}
+@media (max-width: 319px) {
 }
 </style>

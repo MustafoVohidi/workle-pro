@@ -2,7 +2,6 @@
   <div class="home">
     <main>
       <div class="container">
-  
         <ProductList />
       </div>
     </main>
@@ -17,19 +16,17 @@ import Footer from "@/components/Footer.vue";
 @Options({
   components: {
     ProductList,
-    Footer
+    Footer,
   },
-
-
 })
 export default class Home extends Vue {
   msg!: string;
-  data(){
+  data() {
     return {
-      page:1,
-      limit:2,
-    }
-  };
+      page: 1,
+      limit: 2,
+    };
+  }
 }
 </script>
 <style lang="scss">
@@ -44,9 +41,14 @@ export default class Home extends Vue {
   padding: 0 0.75rem;
   box-sizing: border-box;
 }
-.col-6-item {
-  width: 50%;
-  padding: 0 0.75rem;
-  box-sizing: border-box;
+@media (max-width: 767px) {
+  .container {
+    max-width:calc(100% - 40px)
+  }
+}
+@media (max-width: 479px) {
+  .container {
+    max-width:100%
+  }
 }
 </style>
