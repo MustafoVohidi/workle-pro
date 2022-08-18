@@ -1,16 +1,15 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import Home from '../views/Home.vue'
-
+import Common from '@/views/Common.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: Common
   },
   {
-    path: '/account',
+    path: '/account/',
     name: 'account',
-    component: () => import('../views/Account.vue')
+    component: () => import('@/views/Account.vue')
   }
 ]
 

@@ -1,15 +1,21 @@
 <template>
-<div class="app">
-<Home />
-</div>
+  <div class="app">
+    <div>
+      <span
+        v-for="pageNumber in totalPages"
+        :key="pageNumber"
+        :class="{
+          'active-page': pageNumber === page,
+        }"
+        @click="changePage(pageNumber)"
+        >{{ pageNumber }}</span
+      >
+    </div>
+    <router-view></router-view>
+  </div>
 </template>
 <script>
-import Home from "@/components/Home"
-export default  {
-  components:{
-    Home,
-  }
-}
+export default {};
 </script>
 <style lang="scss">
 #app {
@@ -20,8 +26,11 @@ export default  {
   color: #2c3e50;
 }
 body {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
-
+.active-page {
+  display: block;
+  color: red;
+}
 </style>

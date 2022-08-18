@@ -5,30 +5,53 @@
         <img alt="" src="@/assets/images/Person.png" />
       </div>
       <div class="info-author">
-        <h3>Jason Mowry</h3>
+        <h3 @click="$router.push('/account')">Jason Mowry</h3>
         <p>@json_mowry_photo</p>
       </div>
     </div>
     <div class="image">
-      <img src="@/assets/images/Photo.jpg" alt="" />
+      <img :src="product.url" alt="" />
     </div>
     <div class="price">
       <div class="quantity">
-        <button>
+        <button type="button" @click="addProduct(product)">
           <img src="@/assets/images/plus.png" alt="" />
         </button>
-        <button>
+        <button type="button" @click="removeProduct(product)">
           <img src="@/assets/images/minus.png" alt="" />
         </button>
-        <input type="text" value="0" />
+        <input type="text" value="1" />
       </div>
-      <div class="currency">51 200 руб.</div>
+      <div class="currency">{{product.price}} руб.</div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
+export default {
+  data() {
+    return {};
+  },
+  props: {
+    product: {
+      type: Object,
+    },
+  },
+  computed: {
+    ...mapState({
+      productsInCart: (state) => state.productsInCart,
+      sumPriceCart: (state) => state.sumPriceCart,
+    }),
+    ...mapGetters({}),
+  },
+  methods: {
+    ...mapMutations({
+      addProduct: "addProduct",
+      removeProduct: "removeProduct",
+    }),
+  },
+};
 </script>
 
 <style lang="scss">
@@ -66,6 +89,12 @@ export default {};
         color: #333333;
         margin-bottom: 3px;
         text-align: left;
+        cursor: pointer;
+        transition: all 0.3s;
+        &:hover {
+          color: red;
+          transition: all 0.3s;
+        }
       }
       p {
         font-weight: 400;

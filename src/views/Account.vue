@@ -1,5 +1,15 @@
 <template>
   <div class="account">
-    <h1>This is an about page</h1>
+    <Account />
   </div>
 </template>
+<script lang="ts">
+import { Options, Vue } from "vue-class-component";
+import Account from "@/components/Account.vue";
+@Options({
+  components: {
+    Account,
+  },
+})
+export default class Common extends Vue {}
+</script>

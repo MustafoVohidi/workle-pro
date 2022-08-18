@@ -10,14 +10,27 @@
 
 <script>
 import ProductItem from "@/components/ProductItem";
+import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
 export default {
   components: {
     ProductItem,
   },
-  data() {
-    return {
-      productList: [{ id: 1 }, { id: 2 }, { id: 4 }, { id: 5 }, { id: 6 }, { id: 7 }],
-    };
+  methods: {
+    ...mapMutations({}),
+    ...mapActions({
+      fetchProducts: "fetchProducts",
+    }),
+  },
+  computed: {
+    ...mapState({
+      productList: (state) => state.productList,
+      page: (state) => state.page,
+      limit: (state) => state.limit,
+    }),
+    ...mapGetters({}),
+  },
+  mounted() {
+    this.fetchProducts();
   },
 };
 </script>
